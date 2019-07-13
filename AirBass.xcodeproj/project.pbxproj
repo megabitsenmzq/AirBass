@@ -1,0 +1,374 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		840D208A1E53B5B70077C001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840D20891E53B5B70077C001 /* AppDelegate.swift */; };
+		840D208C1E53B5B70077C001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840D208B1E53B5B70077C001 /* Assets.xcassets */; };
+		840D208F1E53B5B70077C001 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840D208D1E53B5B70077C001 /* MainMenu.xib */; };
+		84C2B2DD1E5AA6820039EC0C /* AirTunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */; };
+		84C2B2DE1E5AA6820039EC0C /* AirTunes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84C2B2E11E5AA6850039EC0C /* MediaKeys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */; };
+		84C2B2E21E5AA6850039EC0C /* MediaKeys.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84C2B2E41E5AA6880039EC0C /* ABPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */; };
+		84C2B2E51E5AA6880039EC0C /* ABPlayerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		84C2B2E71E5AA68B0039EC0C /* ABPlayerInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; };
+		84C2B2E81E5AA68B0039EC0C /* ABPlayerInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84C2B2DF1E5AA6820039EC0C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84C2B2E81E5AA68B0039EC0C /* ABPlayerInterface.framework in Embed Frameworks */,
+				84C2B2E51E5AA6880039EC0C /* ABPlayerController.framework in Embed Frameworks */,
+				84C2B2DE1E5AA6820039EC0C /* AirTunes.framework in Embed Frameworks */,
+				84C2B2E21E5AA6850039EC0C /* MediaKeys.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		840D20861E53B5B70077C001 /* AirBass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirBass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		840D20891E53B5B70077C001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		840D208B1E53B5B70077C001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		840D208E1E53B5B70077C001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		840D20901E53B5B70077C001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AirTunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MediaKeys.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ABPlayerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ABPlayerInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C2B2EB1E5AA7770039EC0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		84C2B2EC1E5AA7770039EC0C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		84C2B2EF1E5AB7600039EC0C /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		840D20831E53B5B70077C001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C2B2E71E5AA68B0039EC0C /* ABPlayerInterface.framework in Frameworks */,
+				84C2B2E41E5AA6880039EC0C /* ABPlayerController.framework in Frameworks */,
+				84C2B2DD1E5AA6820039EC0C /* AirTunes.framework in Frameworks */,
+				84C2B2E11E5AA6850039EC0C /* MediaKeys.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		840D207D1E53B5B70077C001 = {
+			isa = PBXGroup;
+			children = (
+				840D20881E53B5B70077C001 /* AirBass */,
+				840D20961E53B6190077C001 /* Frameworks */,
+				840D20871E53B5B70077C001 /* Products */,
+				84C2B2EC1E5AA7770039EC0C /* LICENSE */,
+				84C2B2EB1E5AA7770039EC0C /* README.md */,
+				84C2B2EF1E5AB7600039EC0C /* screenshot.png */,
+			);
+			sourceTree = "<group>";
+		};
+		840D20871E53B5B70077C001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				840D20861E53B5B70077C001 /* AirBass.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		840D20881E53B5B70077C001 /* AirBass */ = {
+			isa = PBXGroup;
+			children = (
+				840D20891E53B5B70077C001 /* AppDelegate.swift */,
+				840D208B1E53B5B70077C001 /* Assets.xcassets */,
+				840D20901E53B5B70077C001 /* Info.plist */,
+				840D208D1E53B5B70077C001 /* MainMenu.xib */,
+			);
+			path = AirBass;
+			sourceTree = "<group>";
+		};
+		840D20961E53B6190077C001 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */,
+				84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */,
+				84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */,
+				84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		840D20851E53B5B70077C001 /* AirBass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 840D20931E53B5B80077C001 /* Build configuration list for PBXNativeTarget "AirBass" */;
+			buildPhases = (
+				840D20821E53B5B70077C001 /* Sources */,
+				840D20831E53B5B70077C001 /* Frameworks */,
+				840D20841E53B5B70077C001 /* Resources */,
+				84C2B2DF1E5AA6820039EC0C /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirBass;
+			productName = AirBass;
+			productReference = 840D20861E53B5B70077C001 /* AirBass.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		840D207E1E53B5B70077C001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 1100;
+				TargetAttributes = {
+					840D20851E53B5B70077C001 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9428KZA92S;
+						LastSwiftMigration = 1100;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 840D20811E53B5B70077C001 /* Build configuration list for PBXProject "AirBass" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 840D207D1E53B5B70077C001;
+			productRefGroup = 840D20871E53B5B70077C001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				840D20851E53B5B70077C001 /* AirBass */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		840D20841E53B5B70077C001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D208C1E53B5B70077C001 /* Assets.xcassets in Resources */,
+				840D208F1E53B5B70077C001 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		840D20821E53B5B70077C001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				840D208A1E53B5B70077C001 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		840D208D1E53B5B70077C001 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				840D208E1E53B5B70077C001 /* Base */,
+			);
+			name = MainMenu.xib;
+			path = .;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		840D20911E53B5B80077C001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		840D20921E53B5B80077C001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		840D20941E53B5B80077C001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9428KZA92S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = AirBass/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenghis.airbass;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		840D20951E53B5B80077C001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9428KZA92S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = AirBass/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenghis.airbass;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		840D20811E53B5B70077C001 /* Build configuration list for PBXProject "AirBass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840D20911E53B5B80077C001 /* Debug */,
+				840D20921E53B5B80077C001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		840D20931E53B5B80077C001 /* Build configuration list for PBXNativeTarget "AirBass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				840D20941E53B5B80077C001 /* Debug */,
+				840D20951E53B5B80077C001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 840D207E1E53B5B70077C001 /* Project object */;
+}
