@@ -1,7 +1,7 @@
 AirBass [Megabits fixed ver.]
 =======
 
-[![Platforms macOS](https://img.shields.io/badge/Platforms-macOS-lightgray.svg?style=flat)](http://www.apple.com/macos/)
+[![Platforms macOS](https://img.shields.io/badge/Platforms-macOS-purple.svg?style=flat)](http://www.apple.com/macos/)
 [![License Apache](https://img.shields.io/badge/License-APACHE2-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 **This is an old open source project fixed by Megabits. The original project link: [AirBass](https://github.com/jenghis/airbass) (Last update 2 years ago).**
@@ -12,14 +12,12 @@ AirBass is an AirPlay server implemented in Swift. It enables wireless audio str
 
 Installation
 ------------
-Pre-built binaries can be found on our release page:
-
-[https://github.com/jenghis/airbass/releases](https://github.com/jenghis/airbass/releases)
+Pre-built binaries can be found on our release page: [Releases](https://github.com/megabitsenmzq/AirBass/releases)
 
 If you prefer building from source, start by cloning the repo with the command:
 
 ~~~shell
-git clone --recurse-submodules https://github.com/jenghis/airbass
+git clone --recurse-submodules https://github.com/megabitsenmzq/AirBass
 ~~~
 
 Then open `AirBass.xcworkspace` in Xcode. Select "AirBass" as the scheme and build the app.
