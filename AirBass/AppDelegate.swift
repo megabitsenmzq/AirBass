@@ -19,6 +19,7 @@ import ABPlayerController
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, MediaKeysDelegate {
+	
     var service: AirTunes!
     var mediaKeys: MediaKeys!
     var window: NSWindow!
@@ -42,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeysDelegate {
     }
 
     func listenForMediaKeys() {
-        mediaKeys = MediaKeys(delegate: self)
+        sharedMediaKeys.mediaKeysdelegate = self
     }
 
     func createUserInterface() {
@@ -78,9 +79,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeysDelegate {
         }
     }
 
-    func mediaKeys(_ mediaKeys: MediaKeys,
-                   shouldInterceptKeyWithKeyCode keyCode: Int32) -> Bool {
-        switch keyCode {
+    func mediaKeys(key: Int32, state: Bool, keyRepeat: Bool) -> Bool {
+		if state || keyRepeat{
+			return false
+		}
+        switch key {
             case NX_KEYTYPE_PLAY:
                 service.play()
                 return true

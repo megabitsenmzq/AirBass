@@ -13,11 +13,11 @@
 		84C2B2DD1E5AA6820039EC0C /* AirTunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */; };
 		84C2B2DE1E5AA6820039EC0C /* AirTunes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84C2B2E11E5AA6850039EC0C /* MediaKeys.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */; };
-		84C2B2E21E5AA6850039EC0C /* MediaKeys.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84C2B2E41E5AA6880039EC0C /* ABPlayerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */; };
 		84C2B2E51E5AA6880039EC0C /* ABPlayerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84C2B2E71E5AA68B0039EC0C /* ABPlayerInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; };
 		84C2B2E81E5AA68B0039EC0C /* ABPlayerInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C04D720322DA383500DDC5F8 /* MediaKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D720222DA383500DDC5F8 /* MediaKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +30,6 @@
 				84C2B2E81E5AA68B0039EC0C /* ABPlayerInterface.framework in Embed Frameworks */,
 				84C2B2E51E5AA6880039EC0C /* ABPlayerController.framework in Embed Frameworks */,
 				84C2B2DE1E5AA6820039EC0C /* AirTunes.framework in Embed Frameworks */,
-				84C2B2E21E5AA6850039EC0C /* MediaKeys.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +49,8 @@
 		84C2B2EB1E5AA7770039EC0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84C2B2EC1E5AA7770039EC0C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		84C2B2EF1E5AB7600039EC0C /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
+		C04D720122DA383500DDC5F8 /* AppWhitelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppWhitelist.plist; sourceTree = "<group>"; };
+		C04D720222DA383500DDC5F8 /* MediaKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MediaKeys.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				840D20881E53B5B70077C001 /* AirBass */,
+				C04D720522DA3EEE00DDC5F8 /* MediaKeys */,
 				840D20961E53B6190077C001 /* Frameworks */,
 				840D20871E53B5B70077C001 /* Products */,
 				84C2B2EC1E5AA7770039EC0C /* LICENSE */,
@@ -107,6 +109,15 @@
 				84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C04D720522DA3EEE00DDC5F8 /* MediaKeys */ = {
+			isa = PBXGroup;
+			children = (
+				C04D720222DA383500DDC5F8 /* MediaKeys.swift */,
+				C04D720122DA383500DDC5F8 /* AppWhitelist.plist */,
+			);
+			path = MediaKeys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04D720322DA383500DDC5F8 /* MediaKeys.swift in Sources */,
 				840D208A1E53B5B70077C001 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,7 +334,7 @@
 				INFOPLIST_FILE = AirBass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jenghis.airbass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -343,7 +355,7 @@
 				INFOPLIST_FILE = AirBass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jenghis.airbass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

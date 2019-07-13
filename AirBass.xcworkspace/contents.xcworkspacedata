@@ -8,9 +8,6 @@
       location = "group:AirTunes/AirTunes.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MediaKeys/MediaKeys.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:ABPlayerController/ABPlayerController.xcodeproj">
    </FileRef>
    <FileRef

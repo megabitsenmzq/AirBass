@@ -22,29 +22,36 @@ import Cocoa
 /// application is the last-active application among all applications specified
 /// in the bundled whitelist. It may still pass on the event unless the delegate
 /// also specifies that the event should be intercepted.
-public class MediaKeys: NSObject, EventTapDelegate {
+///
+var sharedMediaKeys: MediaKeys!
+public class MediaKeys: NSApplication {
     private var appWhitelist = Set<String>()
     private var runningApps = [String]()
-    private var eventTap: EventTap?
     private let currentApp = Bundle.main.bundleIdentifier!
 
     /// The object that handles media key presses.
-    public var delegate: MediaKeysDelegate?
+    public var mediaKeysdelegate: MediaKeysDelegate?
 
     /// Creates a `MediaKeys` instance with the specified delegate.
     ///
     /// - Parameter delegate: The object that handles media key presses.
     /// Defaults to `nil`.
-    public init(delegate: MediaKeysDelegate? = nil) {
-        self.delegate = delegate
-        super.init()
-        loadWhitelist()
-        observeApplicationEvents()
-        createEventTap()
-    }
-
+	///
+	
+	override public init() {
+		super.init()
+		sharedMediaKeys = self
+		loadWhitelist()
+		observeApplicationEvents()
+		runningApps.append(currentApp)
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
     private func loadWhitelist() {
-        appWhitelist.insert(currentApp)
+		appWhitelist.insert(currentApp)
         guard let path = Bundle(for: type(of: self)).path(
             forResource: "AppWhitelist", ofType:"plist") else { return }
         if let apps = NSArray(contentsOfFile: path) as? [String] {
@@ -62,11 +69,6 @@ public class MediaKeys: NSObject, EventTapDelegate {
                            selector: #selector(applicationDidTerminate(_:)),
                            name: NSWorkspace.didTerminateApplicationNotification,
                            object: nil)
-    }
-
-    private func createEventTap() {
-        let systemEvents: CGEventMask = 16384  // not defined in public API
-        eventTap = EventTap(delegate: self, eventsOfInterest: systemEvents)
     }
 
     @objc private func applicationDidActivate(_ notification: Notification) {
@@ -99,18 +101,24 @@ public class MediaKeys: NSObject, EventTapDelegate {
         guard appWhitelist.contains(identifier) else { return }
         runningApps.insert(identifier, at: 0)
     }
-
-    func eventTap(_ tap: EventTap!, shouldIntercept event: CGEvent!) -> Bool {
-        guard let delegate = self.delegate else { return false }
-        let shouldIntercept = (runningApps.first == currentApp)
-        guard shouldIntercept else { return false }
-        guard let cocoaEvent = NSEvent(cgEvent: event) else { return false }
-        let keyCode = Int32(cocoaEvent.data1 & 0xffff0000) >> 16
-        let keyFlags = (cocoaEvent.data1 & 0x0000ffff)
-        let keyState = ((keyFlags & 0xff00) >> 8) == 0xA
-        guard keyState else { return false }
-        return delegate.mediaKeys(self, shouldInterceptKeyWithKeyCode: keyCode)
-    }
+	
+	override public func sendEvent(_ event: NSEvent) {
+		let shouldIntercept = (runningApps.first == currentApp)
+		guard shouldIntercept else {
+			super.sendEvent(event)
+			return
+		}
+		if (event.type == .systemDefined && event.subtype.rawValue == 8) {
+			let keyCode = ((event.data1 & 0xFFFF0000) >> 16)
+			let keyFlags = (event.data1 & 0x0000FFFF)
+			// Get the key state. 0xA is KeyDown, OxB is KeyUp
+			let keyState = (((keyFlags & 0xFF00) >> 8)) == 0xA
+			let keyRepeat = (keyFlags & 0x1)
+			_ = mediaKeysdelegate!.mediaKeys(key: Int32(keyCode), state: keyState, keyRepeat: Bool(truncating: keyRepeat as NSNumber))
+		}
+		
+		super.sendEvent(event)
+	}
 }
 
 /// The `MediaKeysDelegate` responds to media key press events and determines
@@ -121,6 +129,5 @@ public protocol MediaKeysDelegate {
     /// - Parameter mediaKeys: The instance that called the function.
     /// - Parameter keyCode: The keycode of the pressed key as defined in the
     /// IOKit keymap header file `ev_keymap.h`.
-    func mediaKeys(_ mediaKeys: MediaKeys,
-                   shouldInterceptKeyWithKeyCode keyCode: Int32) -> Bool
+    func mediaKeys(key: Int32, state: Bool, keyRepeat: Bool) -> Bool
 }
