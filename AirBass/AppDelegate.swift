@@ -18,15 +18,15 @@ import MediaKeys
 import ABPlayerController
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, MediaKeysDelegate {
     var service: AirTunes!
-//    var mediaKeys: MediaKeys!
+    var mediaKeys: MediaKeys!
     var window: NSWindow!
     var viewController: ABPlayerController!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         launchServer()
-//        listenForMediaKeys()
+        listenForMediaKeys()
         createUserInterface()
         updateWindowPosition()
         loadPreferences()
@@ -41,9 +41,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         service.start()
     }
 
-//    func listenForMediaKeys() {
-//        mediaKeys = MediaKeys(delegate: self)
-//    }
+    func listenForMediaKeys() {
+        mediaKeys = MediaKeys(delegate: self)
+    }
 
     func createUserInterface() {
         viewController = ABPlayerController(service: service)
@@ -78,21 +78,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-//    func mediaKeys(_ mediaKeys: MediaKeys,
-//                   shouldInterceptKeyWithKeyCode keyCode: Int32) -> Bool {
-//        switch keyCode {
-//            case NX_KEYTYPE_PLAY:
-//                service.play()
-//                return true
-//            case NX_KEYTYPE_FAST:
-//                service.next()
-//                return true
-//            case NX_KEYTYPE_REWIND:
-//                service.previous()
-//                return true
-//            default:
-//                break
-//        }
-//        return false
-//    }
+    func mediaKeys(_ mediaKeys: MediaKeys,
+                   shouldInterceptKeyWithKeyCode keyCode: Int32) -> Bool {
+        switch keyCode {
+            case NX_KEYTYPE_PLAY:
+                service.play()
+                return true
+            case NX_KEYTYPE_FAST:
+                service.next()
+                return true
+            case NX_KEYTYPE_REWIND:
+                service.previous()
+                return true
+            default:
+                break
+        }
+        return false
+    }
 }
