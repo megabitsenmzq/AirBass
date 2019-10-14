@@ -14,7 +14,6 @@
 
 import Cocoa
 import AirTunes
-import MediaKeys
 import ABPlayerController
 
 @NSApplicationMain
