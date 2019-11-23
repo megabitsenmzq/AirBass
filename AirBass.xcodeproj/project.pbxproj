@@ -16,6 +16,7 @@
 		84C2B2E51E5AA6880039EC0C /* ABPlayerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84C2B2E71E5AA68B0039EC0C /* ABPlayerInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; };
 		84C2B2E81E5AA68B0039EC0C /* ABPlayerInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C027C4CF2389898200B7036D /* EventTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C4CE2389898200B7036D /* EventTap.swift */; };
 		C04D720322DA383500DDC5F8 /* MediaKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D720222DA383500DDC5F8 /* MediaKeys.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +49,7 @@
 		84C2B2EB1E5AA7770039EC0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84C2B2EC1E5AA7770039EC0C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		84C2B2EF1E5AB7600039EC0C /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
-		C04D720122DA383500DDC5F8 /* AppWhitelist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppWhitelist.plist; sourceTree = "<group>"; };
+		C027C4CE2389898200B7036D /* EventTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTap.swift; sourceTree = "<group>"; };
 		C04D720222DA383500DDC5F8 /* MediaKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MediaKeys.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
@@ -112,8 +113,8 @@
 		C04D720522DA3EEE00DDC5F8 /* MediaKeys */ = {
 			isa = PBXGroup;
 			children = (
+				C027C4CE2389898200B7036D /* EventTap.swift */,
 				C04D720222DA383500DDC5F8 /* MediaKeys.swift */,
-				C04D720122DA383500DDC5F8 /* AppWhitelist.plist */,
 			);
 			path = MediaKeys;
 			sourceTree = "<group>";
@@ -193,6 +194,7 @@
 			files = (
 				C04D720322DA383500DDC5F8 /* MediaKeys.swift in Sources */,
 				840D208A1E53B5B70077C001 /* AppDelegate.swift in Sources */,
+				C027C4CF2389898200B7036D /* EventTap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

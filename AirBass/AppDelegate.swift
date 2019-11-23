@@ -78,23 +78,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeysDelegate {
         }
     }
 
-    func mediaKeys(key: Int32, state: Bool, keyRepeat: Bool) -> Bool {
-		if state || keyRepeat{
-			return false
+    func mediaKeys(key: Int32, state: Bool, keyRepeat: Bool) {
+		if state || keyRepeat {
+			return
 		}
         switch key {
             case NX_KEYTYPE_PLAY:
                 service.play()
-                return true
             case NX_KEYTYPE_FAST:
                 service.next()
-                return true
             case NX_KEYTYPE_REWIND:
                 service.previous()
-                return true
             default:
                 break
         }
-        return false
     }
 }
