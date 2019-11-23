@@ -150,7 +150,7 @@
 				TargetAttributes = {
 					840D20851E53B5B70077C001 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9428KZA92S;
+						DevelopmentTeam = QJN4A73F8D;
 						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 					};
@@ -327,7 +327,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9428KZA92S;
+				DEVELOPMENT_TEAM = QJN4A73F8D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = AirBass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -348,7 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9428KZA92S;
+				DEVELOPMENT_TEAM = QJN4A73F8D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = AirBass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

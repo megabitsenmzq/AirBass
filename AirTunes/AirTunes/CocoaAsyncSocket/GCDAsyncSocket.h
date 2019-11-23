@@ -49,7 +49,7 @@ extern NSString *const GCDAsyncSocketSSLDiffieHellmanParameters;
 #define GCDAsyncSocketLoggingContext 65535
 
 
-typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
+typedef NS_ERROR_ENUM(GCDAsyncSocketErrorDomain, GCDAsyncSocketError) {
 	GCDAsyncSocketNoError = 0,           // Never used
 	GCDAsyncSocketBadConfigError,        // Invalid configuration
 	GCDAsyncSocketBadParamError,         // Invalid parameter was passed
@@ -88,6 +88,15 @@ typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
 - (instancetype)initWithSocketQueue:(nullable dispatch_queue_t)sq;
 - (instancetype)initWithDelegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq;
 - (instancetype)initWithDelegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq socketQueue:(nullable dispatch_queue_t)sq;
+
+/**
+ * Create GCDAsyncSocket from already connect BSD socket file descriptor
+**/
++ (nullable instancetype)socketFromConnectedSocketFD:(int)socketFD socketQueue:(nullable dispatch_queue_t)sq error:(NSError**)error;
+
++ (nullable instancetype)socketFromConnectedSocketFD:(int)socketFD delegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq error:(NSError**)error;
+
++ (nullable instancetype)socketFromConnectedSocketFD:(int)socketFD delegate:(nullable id<GCDAsyncSocketDelegate>)aDelegate delegateQueue:(nullable dispatch_queue_t)dq socketQueue:(nullable dispatch_queue_t)sq error:(NSError **)error;
 
 #pragma mark Configuration
 
@@ -298,6 +307,12 @@ typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
  * Connects to the unix domain socket at the given url, using the specified timeout.
  */
 - (BOOL)connectToUrl:(NSURL *)url withTimeout:(NSTimeInterval)timeout error:(NSError **)errPtr;
+
+/**
+ * Iterates over the given NetService's addresses in order, and invokes connectToAddress:error:. Stops at the
+ * first invocation that succeeds and returns YES; otherwise returns NO.
+ */
+- (BOOL)connectToNetService:(NSNetService *)netService error:(NSError **)errPtr;
 
 #pragma mark Disconnecting
 
@@ -512,7 +527,7 @@ typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
  * For performance reasons, the socket will retain it, not copy it.
  * So if it is immutable, don't modify it while the socket is using it.
 **/
-- (void)readDataToData:(NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;
+- (void)readDataToData:(nullable NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;
 
 /**
  * Reads bytes until (and including) the passed "data" parameter, which acts as a separator.
@@ -647,7 +662,7 @@ typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
  * completes writing the bytes (which is NOT immediately after this method returns, but rather at a later time
  * when the delegate method notifies you), then you should first copy the bytes, and pass the copy to this method.
 **/
-- (void)writeData:(NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;
+- (void)writeData:(nullable NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;
 
 /**
  * Returns progress of the current write, from 0.0 to 1.0, or NaN if no current write (use isnan() to check).
@@ -738,7 +753,7 @@ typedef NS_ENUM(NSInteger, GCDAsyncSocketError) {
  * 
  * - GCDAsyncSocketSSLCipherSuites
  *     The values must be of type NSArray.
- *     Each item within the array must be a NSNumber, encapsulating
+ *     Each item within the array must be a NSNumber, encapsulating an SSLCipherSuite.
  *     See Apple's documentation for SSLSetEnabledCiphers.
  *     See also the SSLCipherSuite typedef.
  *
