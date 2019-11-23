@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import Cocoa
+import MediaPlayer
 
 /// The `MediaKeys` class creates a service that monitors and optionally
 /// intercepts media key press events.
@@ -76,6 +77,23 @@ public class MediaKeys: NSApplication, EventTapDelegate {
         }
         return false
     }
+    
+    // Fallback when there is no accessibility access.
+    override public func sendEvent(_ event: NSEvent) {
+        super.sendEvent(event)
+        if !eventTap!.disabled {
+            return
+        }
+        if event.type == .systemDefined && event.subtype.rawValue == 8 {
+            let keyCode = ((event.data1 & 0xFFFF0000) >> 16)
+            let keyFlags = (event.data1 & 0x0000FFFF)
+            // Get the key state. 0xA is KeyDown, OxB is KeyUp
+            let keyState = (((keyFlags & 0xFF00) >> 8)) == 0xA
+            let keyRepeat = (keyFlags & 0x1)
+            mediaKeysdelegate!.mediaKeys(key: Int32(keyCode), state: keyState, keyRepeat: Bool(truncating: keyRepeat as NSNumber))
+        }
+    }
+
 }
 
 /// The `MediaKeysDelegate` responds to media key press events and determines

@@ -16,7 +16,8 @@ import Foundation
 
 class EventTap {
     private let delegate: EventTapDelegate
-
+    var disabled = false
+    
     init(delegate: EventTapDelegate, eventsOfInterest: CGEventMask) {
         self.delegate = delegate
         beginObservingEvents(withMask: eventsOfInterest)
@@ -25,15 +26,19 @@ class EventTap {
     private func beginObservingEvents(withMask mask: CGEventMask) {
         let tapPointer = UnsafeMutableRawPointer(
             Unmanaged.passUnretained(self).toOpaque())
-        let eventPort = CGEvent.tapCreate(tap: .cgSessionEventTap,
+        if let eventPort = CGEvent.tapCreate(tap: .cgSessionEventTap,
                                           place: .headInsertEventTap,
                                           options: .defaultTap,
                                           eventsOfInterest: mask,
                                           callback: callback,
-                                          userInfo: tapPointer)
-        let source = CFMachPortCreateRunLoopSource(kCFAllocatorSystemDefault,
-                                                   eventPort, 0)
-        CFRunLoopAddSource(CFRunLoopGetCurrent(), source, .commonModes)
+                                          userInfo: tapPointer) {
+            
+            let source = CFMachPortCreateRunLoopSource(kCFAllocatorSystemDefault,
+                                                       eventPort, 0)
+            CFRunLoopAddSource(CFRunLoopGetCurrent(), source, .commonModes)
+        } else {
+            disabled = true
+        }
     }
 
     private let callback: CGEventTapCallBack = { (proxy, type, event, refcon) in
