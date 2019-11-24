@@ -85,9 +85,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, MediaKeysDelegate {
         switch key {
             case NX_KEYTYPE_PLAY:
                 service.play()
-            case NX_KEYTYPE_FAST:
+            case NX_KEYTYPE_FAST, NX_KEYTYPE_NEXT:
                 service.next()
-            case NX_KEYTYPE_REWIND:
+            case NX_KEYTYPE_REWIND, NX_KEYTYPE_PREVIOUS:
                 service.previous()
             default:
                 break

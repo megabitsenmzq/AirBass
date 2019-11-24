@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import Cocoa
-import MediaPlayer
 
 /// The `MediaKeys` class creates a service that monitors and optionally
 /// intercepts media key press events.
@@ -26,6 +25,7 @@ import MediaPlayer
 ///
 var sharedMediaKeys: MediaKeys!
 public class MediaKeys: NSApplication, EventTapDelegate {
+    private let appleRemote = AppleRemote() //Copy from VLC
     private var eventTap: EventTap?
 
     /// The object that handles media key presses.
@@ -41,11 +41,51 @@ public class MediaKeys: NSApplication, EventTapDelegate {
 		super.init()
 		sharedMediaKeys = self
         createEventTap()
+        initAppleRemote()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+    
+    private func initAppleRemote() {
+        appleRemote.clickCountEnabledButtons = kRemoteButtonPlay.rawValue
+        appleRemote.delegate = self
+        appleRemote.startListening(self)
+    }
+    
+    override public func appleRemoteButton(_ buttonIdentifier: AppleRemoteEventIdentifier, pressedDown: Bool, clickCount count: UInt32) {
+        
+        switch buttonIdentifier {
+        case kRemoteButtonPlay, k2009RemoteButtonPlay, k2005RemoteButtonPlay:
+            HIDPostAuxKey(key: NX_KEYTYPE_PLAY)
+        case kRemoteButtonRight, k2005RemoteButtonRight:
+            HIDPostAuxKey(key: NX_KEYTYPE_FAST)
+        case kRemoteButtonLeft, k2005RemoteButtonLeft:
+            HIDPostAuxKey(key: NX_KEYTYPE_REWIND)
+        case kRemoteButtonVolume_Plus, k2005RemoteButtonVolume_Plus:
+            HIDPostAuxKey(key: NX_KEYTYPE_SOUND_UP)
+        case kRemoteButtonVolume_Minus, k2005RemoteButtonVolume_Minus:
+            HIDPostAuxKey(key: NX_KEYTYPE_SOUND_DOWN)
+        default:
+            break
+        }
+    }
+
+    //Simulate media key press
+    //https://stackoverflow.com/questions/11045814/emulate-media-key-press-on-mac
+    func HIDPostAuxKey(key: Int32) {
+        func doKey(down: Bool) {
+            let flags = NSEvent.ModifierFlags(rawValue: (down ? 0xa00 : 0xb00))
+            let data1 = Int((key<<16) | (down ? 0xa00 : 0xb00))
+
+            let ev = NSEvent.otherEvent(with: NSEvent.EventType.systemDefined, location: NSPoint(x:0,y:0), modifierFlags: flags, timestamp: 0, windowNumber: 0, context: nil, subtype: 8, data1: data1, data2: -1)
+            let cev = ev?.cgEvent
+            cev?.post(tap: CGEventTapLocation.cghidEventTap)
+        }
+        doKey(down: true)
+        doKey(down: false)
+    }
     
     let keyList = [NX_KEYTYPE_PLAY,
                    NX_KEYTYPE_FAST,

@@ -18,6 +18,7 @@
 		84C2B2E81E5AA68B0039EC0C /* ABPlayerInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C027C4CF2389898200B7036D /* EventTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027C4CE2389898200B7036D /* EventTap.swift */; };
 		C04D720322DA383500DDC5F8 /* MediaKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04D720222DA383500DDC5F8 /* MediaKeys.swift */; };
+		C08B23BC238AAF10009A2F42 /* AppleRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = C08B23BA238AAF10009A2F42 /* AppleRemote.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,9 @@
 		84C2B2EF1E5AB7600039EC0C /* screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenshot.png; sourceTree = "<group>"; };
 		C027C4CE2389898200B7036D /* EventTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTap.swift; sourceTree = "<group>"; };
 		C04D720222DA383500DDC5F8 /* MediaKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MediaKeys.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C08B23B7238AAC4D009A2F42 /* AirBass-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirBass-Bridging-Header.h"; sourceTree = "<group>"; };
+		C08B23BA238AAF10009A2F42 /* AppleRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleRemote.m; sourceTree = "<group>"; };
+		C08B23BB238AAF10009A2F42 /* AppleRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleRemote.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +117,11 @@
 		C04D720522DA3EEE00DDC5F8 /* MediaKeys */ = {
 			isa = PBXGroup;
 			children = (
-				C027C4CE2389898200B7036D /* EventTap.swift */,
 				C04D720222DA383500DDC5F8 /* MediaKeys.swift */,
+				C027C4CE2389898200B7036D /* EventTap.swift */,
+				C08B23BB238AAF10009A2F42 /* AppleRemote.h */,
+				C08B23BA238AAF10009A2F42 /* AppleRemote.m */,
+				C08B23B7238AAC4D009A2F42 /* AirBass-Bridging-Header.h */,
 			);
 			path = MediaKeys;
 			sourceTree = "<group>";
@@ -152,7 +159,7 @@
 					840D20851E53B5B70077C001 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = QJN4A73F8D;
-						LastSwiftMigration = 1100;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -194,6 +201,7 @@
 			files = (
 				C04D720322DA383500DDC5F8 /* MediaKeys.swift in Sources */,
 				840D208A1E53B5B70077C001 /* AppDelegate.swift in Sources */,
+				C08B23BC238AAF10009A2F42 /* AppleRemote.m in Sources */,
 				C027C4CF2389898200B7036D /* EventTap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -338,6 +347,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.megabits.airbass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MediaKeys/AirBass-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -346,6 +357,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -359,6 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.megabits.airbass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MediaKeys/AirBass-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
