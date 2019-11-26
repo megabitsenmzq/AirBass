@@ -409,7 +409,7 @@ static AppleRemote* sharedInstance=nil;
             [self handleEventWithCookieString: lastSubCookieString sumOfValues:0];
         }
         if ([cookieString length] > 0) {
-            printf("Unknown AR button for cookiestring %s", [cookieString UTF8String]);
+            printf("Unknown AR button for cookiestring %s\n", [cookieString UTF8String]);
         }
     }
 }
@@ -462,7 +462,7 @@ static void QueueCallbackFunction(void* target,  IOReturn result, void* refcon, 
     ioReturnValue = IOObjectGetClass(hidDevice, className);
 
     if (ioReturnValue != kIOReturnSuccess) {
-        printf("Failed to get IOKit class name.");
+        printf("Failed to get IOKit class name.\n");
         return NULL;
     }
 
@@ -477,7 +477,7 @@ static void QueueCallbackFunction(void* target,  IOReturn result, void* refcon, 
         plugInResult = (*plugInInterface)->QueryInterface(plugInInterface, CFUUIDGetUUIDBytes(kIOHIDDeviceInterfaceID), (LPVOID) &hidDeviceInterface);
 
         if (plugInResult != S_OK) {
-            printf("Couldn't create HID class device interface");
+            printf("Couldn't create HID class device interface\n");
         }
         // Release
         if (plugInInterface) (*plugInInterface)->Release(plugInInterface);
@@ -596,13 +596,13 @@ static void QueueCallbackFunction(void* target,  IOReturn result, void* refcon, 
                     (*queue)->start(queue);
                     return YES;
                 } else {
-                    printf("Error when setting event callout");
+                    printf("Error when setting event callout\n");
                 }
             } else {
-                printf("Error when creating async event source");
+                printf("Error when creating async event source\n");
             }
         } else {
-            printf("Error when opening HUD device");
+            printf("Error when opening HUD device\n");
         }
     }
     return NO;
