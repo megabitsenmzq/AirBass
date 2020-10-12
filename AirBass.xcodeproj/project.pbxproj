@@ -44,7 +44,6 @@
 		840D208E1E53B5B70077C001 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		840D20901E53B5B70077C001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AirTunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MediaKeys.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ABPlayerController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ABPlayerInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C2B2EB1E5AA7770039EC0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 			children = (
 				84C2B2E61E5AA68B0039EC0C /* ABPlayerInterface.framework */,
 				84C2B2E31E5AA6880039EC0C /* ABPlayerController.framework */,
-				84C2B2E01E5AA6850039EC0C /* MediaKeys.framework */,
 				84C2B2DC1E5AA6820039EC0C /* AirTunes.framework */,
 			);
 			name = Frameworks;
@@ -154,7 +152,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				TargetAttributes = {
 					840D20851E53B5B70077C001 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -246,6 +244,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -304,6 +303,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -337,13 +337,13 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QJN4A73F8D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = AirBass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.megabits.airbass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -361,13 +361,13 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QJN4A73F8D;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = AirBass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = com.megabits.airbass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
