@@ -24,8 +24,5 @@ Then open `AirBass.xcworkspace` in Xcode. Select "AirBass" as the scheme and bui
 ## Usage
 To get started, connect an iOS device to the same Wi-Fi network as your Mac. Open Control Center from the iOS device by swiping up from the bottom of the screen. Swipe Control Center left to find the card with audio controls. In the audio output section, select the "AirBass" option. Audio from the device should begin streaming to your Mac.  
 
-## Known bugs
-Not work with non-English device name.
-
 ## License
 This project is available under the Apache 2.0 license. See LICENSE for details.
