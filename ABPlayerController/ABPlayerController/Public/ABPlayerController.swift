@@ -60,8 +60,9 @@ public class ABPlayerController: NSViewController, ABPlayerServiceDelegate {
     }
 
     /// Whether the user interface is in expanded or collapsed mode.
-    public var isCollapsed = true {
+    public var isCollapsed = !UserDefaults.standard.bool(forKey: "view.isCollapsed") {
         didSet {
+            UserDefaults.standard.setValue(!isCollapsed, forKey: "view.isCollapsed")
             expandedView.isCollapsed = isCollapsed
             collapsedView.isCollapsed = isCollapsed
         }
@@ -95,7 +96,7 @@ public class ABPlayerController: NSViewController, ABPlayerServiceDelegate {
         isDarkMode = true
         updateView()
         collapsedView.createAutohideTrackingArea()
-        setViewType(to: .collapsed, animate: false)
+        setViewType(to: isCollapsed ? .collapsed : .expanded, animate: false)
     }
 
     private func updateTint() {
@@ -106,7 +107,6 @@ public class ABPlayerController: NSViewController, ABPlayerServiceDelegate {
     private func updateView() {
         updateMetadata()
         updatePlaybackStatus()
-        handleMissingArtwork()
         handlePlaybackStart()
         handlePlaybackStop()
     }
@@ -138,14 +138,6 @@ public class ABPlayerController: NSViewController, ABPlayerServiceDelegate {
     private func updatePlaybackStatus() {
         currentTime = trackInfo.position
         expandedView.isPlaying = playerInfo.isPlaying
-    }
-
-    private func handleMissingArtwork() {
-        let isMissingArtwork = (trackInfo.artwork.size == NSZeroSize)
-        collapsedView.canExpand = !isMissingArtwork
-        if isMissingArtwork && !isCollapsed {
-            setViewType(to: .collapsed, animate: true)
-        }
     }
 
     private func handlePlaybackStart() {
