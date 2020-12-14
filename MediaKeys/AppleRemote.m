@@ -66,7 +66,7 @@ const NSTimeInterval HOLD_RECOGNITION_TIME_INTERVAL=0.4;
 {
     self = [super init];
     if (self) {
-        _openInExclusiveMode = YES;
+        _openInExclusiveMode = NO;
         queue = NULL;
         hidDeviceInterface = NULL;
         NSMutableDictionary * mutableCookieToButtonMapping = [[NSMutableDictionary alloc] init];
@@ -85,10 +85,11 @@ const NSTimeInterval HOLD_RECOGNITION_TIME_INTERVAL=0.4;
         [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2009RemoteButtonFullscreen]  forKey:@"33_21_20_3_2_33_21_20_3_2_"];
         [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteControl_Switched]  forKey:@"42_33_23_21_20_2_33_23_21_20_2_"];
         
-        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonPlay]  forKey:@"35_25_23_22_4_3_35_25_23_22_4_3_"];
-        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonRight]  forKey:@"35_26_23_22_4_3_35_26_23_22_4_3_"];
-        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonVolume_Plus]  forKey:@"35_23_22_17_14_4_3_35_23_22_4_3_"];
-        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonVolume_Minus]  forKey:@"35_23_22_18_14_4_3_35_23_22_4_3_"];
+        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonPlay]  forKey:@"35_25_23_22_4_35_25_23_22_4_"];
+        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonRight]  forKey:@"35_26_23_22_4_35_26_23_22_4_"];
+        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonLeft] forKey:@"35_27_23_22_4_35_27_23_22_4_"];
+        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonVolume_Plus]  forKey:@"35_33_32_23_22_4_35_33_32_23_22_17_14_4_"];
+        [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:k2005RemoteButtonVolume_Minus]  forKey:@"35_34_32_23_22_4_35_34_32_23_22_18_14_4_"];
         
         
         [mutableCookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonVolume_Plus_AfterHS]  forKey:@"33_21_20_15_12_2_"];
