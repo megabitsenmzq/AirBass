@@ -6,8 +6,6 @@
 
 **This is an old open source project fixed by Megabits. The original project link: [AirBass](https://github.com/jenghis/airbass) (Last update 2 years ago).**
 
-[2021/6/12] I will stop maintaining this app because Apple has already added “AirPlay To Mac” in the new macOS version. Hope it can deliver a good experience better than this open-source alternative.
-
 AirBass is an AirPlay server implemented in Swift. It enables wireless audio streaming from an iOS device to a Mac using Apple's AirPlay technology.
 
 <img src="https://raw.githubusercontent.com/jenghis/airbass/master/screenshot.png" width="700">
