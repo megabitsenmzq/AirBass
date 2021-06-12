@@ -248,7 +248,10 @@ public class ABPlayerController: NSViewController, ABPlayerServiceDelegate {
 
     public func playerService(_ playerService: ABPlayerService,
                               didChangePlayerInfo playerInfo: ABPlayerInfo) {
-        DispatchQueue.main.async { self.updateView() }
+        DispatchQueue.main.async {
+            self.updateView()
+            self.setVolume()
+        }
     }
 
     public func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {

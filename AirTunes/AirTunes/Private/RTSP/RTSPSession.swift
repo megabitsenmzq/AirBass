@@ -186,6 +186,7 @@ class RTSPSession: NSObject, GCDAsyncSocketDelegate {
     private func handleParameterData(_ data: Data) {
         let parsed = ParameterParser(data: data)!.parse()
         manager.updateTrackInfo(withKeyedValues: parsed)
+        manager.updatePlayerInfo(withKeyedValues: parsed)
     }
 
     private func handleDAAPData(_ data: Data) {

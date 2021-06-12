@@ -21,6 +21,7 @@
 		8489E7C11E52BE5900DFDC64 /* ABTintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8489E7B51E52BE5900DFDC64 /* ABTintable.swift */; };
 		8489E7C31E52BECD00DFDC64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8489E7C21E52BECD00DFDC64 /* Assets.xcassets */; };
 		8489E7ED1E53A36500DFDC64 /* ABPlayerInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8489E7EC1E53A36500DFDC64 /* ABPlayerInterface.framework */; };
+		C04A0B3F2675013C009CBA0D /* ABPlayerController+volume.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04A0B3E2675013C009CBA0D /* ABPlayerController+volume.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8489E7EC1E53A36500DFDC64 /* ABPlayerInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ABPlayerInterface.framework; path = ../workspace/ABPlayerInterface/build/Debug/ABPlayerInterface.framework; sourceTree = "<group>"; };
 		84C2B2F31E5AB7CB0039EC0C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84C2B2F41E5AB7CB0039EC0C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C04A0B3E2675013C009CBA0D /* ABPlayerController+volume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ABPlayerController+volume.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				8489E7AB1E52BE5900DFDC64 /* ABPlayerController.swift */,
+				C04A0B3E2675013C009CBA0D /* ABPlayerController+volume.swift */,
 				8489E7AC1E52BE5900DFDC64 /* ABWindow.swift */,
 			);
 			path = Public;
@@ -214,6 +217,7 @@
 				8489E7C01E52BE5900DFDC64 /* ABCollapsedView.swift in Sources */,
 				8489E7BD1E52BE5900DFDC64 /* ABButton.swift in Sources */,
 				8489E7BE1E52BE5900DFDC64 /* ABImageView.swift in Sources */,
+				C04A0B3F2675013C009CBA0D /* ABPlayerController+volume.swift in Sources */,
 				8489E7C11E52BE5900DFDC64 /* ABTintable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

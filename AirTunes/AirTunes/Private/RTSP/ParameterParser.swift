@@ -24,12 +24,31 @@ class ParameterParser: Parser {
     }
 
     func parse() -> [String: AnyHashable] {
-        guard let progress = Progress(
-            parameters: parameters) else { return [:] }
-        return [
-            "duration": progress.duration,
-            "position": progress.position,
-        ]
+        if let progress = Progress(
+            parameters: parameters) {
+            return [
+                "duration": progress.duration,
+                "position": progress.position,
+            ]
+        }
+        
+        if let info = Info(
+            parameters: parameters) {
+            return [
+                "volume": info.volume
+            ]
+        }
+        return [:]
+    }
+}
+
+private class Info {
+    let volume: Double
+    
+    init?(parameters: String) {
+        guard let info = parameters.match(
+            "(volume: )(.*)", group: 2) else { return nil }
+        volume = Double(info)!
     }
 }
 
